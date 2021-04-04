@@ -1,15 +1,20 @@
-export default function orderByProps(objectSort, arrSort = []) {
-    let arrAllKey = [];
-    for (const key in objectSort) {
-      if (arrSort.indexOf(key) === -1) {
-        arrAllKey.push(key);
-      }
-    }
-    arrAllKey = [...arrSort, ...arrAllKey.sort()];
-  
-    const result = [];
-    for (const key of arrAllKey) {
-      result.push({ key, value: objectSort[key] });
-    }
-    return result;
-  }
+export default function showSpecialAttack(attack) {
+  const arr = [];
+
+  attack.special.forEach((item) => {
+    const {
+      id,
+      name,
+      icon,
+      description = 'Описание недоступно',
+    } = item;
+
+    arr.push({
+      id,
+      name,
+      icon,
+      description,
+    });
+  });
+  return arr;
+}
